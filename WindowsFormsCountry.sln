@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsCountry", "WindowsFormsCountry\WindowsFormsCountry.csproj", "{0AF3171C-F976-4C50-89E7-5903F1014774}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71BA1D9B-3794-4655-B95F-C9535194B443}"
+	ProjectSection(SolutionItems) = preProject
+		..\DLLDatabase\WorldDatabase\obj\Debug\WorldDatabase.dll = ..\DLLDatabase\WorldDatabase\obj\Debug\WorldDatabase.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0D1B359-8599-4E40-AA3A-57CC365A733F}
 	EndGlobalSection
 EndGlobal

@@ -77,7 +77,7 @@ namespace WindowsFormsCountry
             dataGridViewCity.Refresh();
            
         }
-      private   void taidalist()
+        private void taidalist()
         {
             if (dataGridViewCountry.SelectedCells.Count == 1)
             {   // otsime valitud rea riigi nimetus
@@ -108,13 +108,14 @@ namespace WindowsFormsCountry
                 table.AcceptChanges();
                 dataGridViewCity.DataSource = table;
 
-            }  
-        
+            }
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
-
+            Form4 form4 = new Form4();
+            form4.Show();
         }
     }
 }
