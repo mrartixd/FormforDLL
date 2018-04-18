@@ -11,44 +11,53 @@ using WorldDatabase;
 
 namespace WindowsFormsCountry
 {
-
     public partial class Form4 : Form
     {
-
-
         public Form4()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            double id = ((ComboBoxItem)comboBox1.SelectedItem).HiddenValue;
-            int check = CountryDB.DeleteCity(id);
-            if (check == 1)
-            {
-                MessageBox.Show("An Item has been successfully deleted", "Delete Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Error", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
             List<City> city = new List<City>();
             city = CountryDB.GetAllCities();
-            foreach (City c in city)
+            foreach (City r in city)
             {
-                comboBox1.Items.Add(new ComboBoxItem(c.Name, c.ID));
+                comboBox1.Items.Add(new ComboBoxItem(r.Name, Convert.ToString(r.ID)));
+            }
+
+
+            List<Country> country = new List<Country>();
+            country = CountryDB.GetAllCountries();
+            foreach(Country r in country)
+            {
+                comboBox2.Items.Add(new ComboBoxItem(r.Name, r.Code));
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //label3.Visible = true;
-             //label3.Text = ((ComboBoxItem)comboBox1.SelectedItem).HiddenValue.ToString();
+            int arv = CountryDB.DeleteCity(Convert.ToInt32(((ComboBoxItem)comboBox1.SelectedItem).HiddenValue));
+            if (arv != 0)
+            {
+                MessageBox.Show("Oli delete " + arv + " rida", "Valmis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            { MessageBox.Show("Delete ebaõnnestus", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int arv = CountryDB.DeleteCountry(((ComboBoxItem)comboBox2.SelectedItem).HiddenValue);
+            if (arv != 0)
+            {
+                MessageBox.Show("Oli delete " + arv + " rida", "Valmis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            { MessageBox.Show("Delete ebaõnnestus", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsCountry
 {
-    public class ComboBoxItem
+    class ComboBoxItem
     {
-       string displayValue;
-        double hiddenValue;
+        string displayValue;
+        string hiddenValue;
 
         //Constructor
-        public ComboBoxItem(string d, double h)
+        public ComboBoxItem(string d, string h)
         {
             displayValue = d;
             hiddenValue = h;
         }
 
         //Accessor
-        public double HiddenValue
+        public string HiddenValue
         {
             get
             {
