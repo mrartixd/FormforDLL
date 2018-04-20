@@ -157,6 +157,7 @@
             this.textBoxIndep.Name = "textBoxIndep";
             this.textBoxIndep.Size = new System.Drawing.Size(184, 27);
             this.textBoxIndep.TabIndex = 12;
+            this.textBoxIndep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIndep_KeyPress);
             // 
             // label6
             // 
@@ -175,6 +176,7 @@
             this.textBoxPopulation.Name = "textBoxPopulation";
             this.textBoxPopulation.Size = new System.Drawing.Size(184, 27);
             this.textBoxPopulation.TabIndex = 14;
+            this.textBoxPopulation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPopulation_KeyPress);
             // 
             // label7
             // 
@@ -248,7 +250,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form5";
             this.Text = "Add Country";
-            this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

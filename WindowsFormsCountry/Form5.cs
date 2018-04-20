@@ -21,17 +21,15 @@ namespace WindowsFormsCountry
         private void button1_Click(object sender, EventArgs e)
         {
             Country country = new Country();
-            City city = new City();
             country.Code = textBoxCode.Text;
             country.Name = textBoxName.Text;
             country.Continent = textBoxContinent.Text;
             country.Region = textBoxRegion.Text;
-            country.SurfaceArea = Convert.ToInt32(textBoxSurface.Text);
+            country.SurfaceArea = Convert.ToDouble(textBoxSurface.Text);
             country.InderYear = Convert.ToDouble(textBoxIndep.Text);
             country.Population = Convert.ToDouble(textBoxPopulation.Text);
             country.GovernmentForm = textBoxGov.Text;
             country.HeadOfState = textBoxHead.Text;
-            country.Capital = city;
 
 
             int arv = CountryDB.InsertNewCountry(country);
@@ -39,14 +37,11 @@ namespace WindowsFormsCountry
             {
                 MessageBox.Show("Oli lisatud " + arv + " rida", "Valmis", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+                Form1 form = new Form1();
+                form.Refresh();
             }
             else
             { MessageBox.Show("Lisamine ebaõnnestus", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-                    
         }
 
         private void textBoxSurface_KeyPress(object sender, KeyPressEventArgs e)
@@ -59,6 +54,23 @@ namespace WindowsFormsCountry
             {
                 e.Handled = true;
             }
+        }
+
+        private void textBoxIndep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPopulation_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
